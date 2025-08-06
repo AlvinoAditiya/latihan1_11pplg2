@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:latihan1_11pplg2/register_page.dart';
+import 'package:latihan1_11pplg2/widget/custom_button.dart';
+import 'package:latihan1_11pplg2/widget/custom_textfiled.dart';
+import 'package:latihan1_11pplg2/widget/my_input_field.dart';
+import 'package:latihan1_11pplg2/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -46,33 +50,20 @@ class _LoginPageState extends State<LoginPage> {
 
             Container(
               margin: EdgeInsets.only(top: 10, bottom: 10),
-              child: TextField(
-                controller: txtUsername,
-                decoration: InputDecoration(
-                  labelText: 'Username',
-                  hintText: 'Enter your username',
-                  border: OutlineInputBorder(),
-                ),
-              ),
+              child: CustomTextfiled(controller: txtUsername, label: "Username",
+               labelColor: Colors.blue, pass: false, isNumber: false,)
             ), // label / hint, border
             Container(
               margin: EdgeInsets.only(top: 10, bottom: 10,),
-              child: TextField(
-                obscureText: true,
-                controller: txtPassword,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  hintText: 'Enter your password',
-                  border: OutlineInputBorder(),
-                ),
-              ),
+              child: CustomTextfiled(controller: txtPassword, label: "Password", 
+              labelColor: Colors.green, pass: true, isNumber: false,)
             ), // label / hint, border, tambahkan hidden character
 
 
             Container(
               width: double.infinity,
-              child: ElevatedButton(onPressed: () {
-                if(txtUsername.text == "admin" && txtPassword.text == "admin"){
+              child: CustomButton(myText: "Login", myTextColor: Colors.blue, onPressed: () {
+                  if(txtUsername.text == "admin" && txtPassword.text == "admin"){
                   setState(() {
                     statusLogin = "Sukses Login";
                   });
@@ -82,10 +73,29 @@ class _LoginPageState extends State<LoginPage> {
                     statusLogin = "Gagal Login";
                   });
                 }
-                print("status "+statusLogin);
-              },
-              child: Text("Login")),
-            ),
+                })),
+              
+            
+
+      
+
+          //   Container(
+          //     width: double.infinity,
+          //     child: ElevatedButton(onPressed: () {
+          //       if(txtUsername.text == "admin" && txtPassword.text == "admin"){
+          //         setState(() {
+          //           statusLogin = "Sukses Login";
+          //         });
+          //       }
+          //       else{
+          //         setState(() {
+          //           statusLogin = "Gagal Login";
+          //         });
+          //       }
+          //       print("status "+statusLogin);
+          //     },
+          //     child: Text("Login")),
+          //   ),
 
 
             TextButton(
