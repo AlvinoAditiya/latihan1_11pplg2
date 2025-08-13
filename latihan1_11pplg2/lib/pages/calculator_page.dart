@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11pplg2/controller/calculator_controller.dart';
+import 'package:latihan1_11pplg2/routes/routes.dart';
 import 'package:latihan1_11pplg2/widget/custom_button.dart';
 import 'package:latihan1_11pplg2/widget/custom_textfiled.dart';
 
 class CalculatorPage extends StatelessWidget {
   CalculatorPage({super.key});
 
-  final CalculatorController calculatoController = Get.put(CalculatorController());
+  final CalculatorController calculatorController = Get.put(CalculatorController());
 
   @override
   Widget build(BuildContext context) {
@@ -15,37 +16,38 @@ class CalculatorPage extends StatelessWidget {
       appBar: AppBar(title:  Text("Calculator"),),
       body: Column(
         children: [
-            CustomTextfiled(controller: calculatoController.txtAngka1, label: "input angka 1",
+            CustomTextfiled(controller: calculatorController.txtAngka1, label: "input angka 1",
              labelColor: Colors.green, pass: false, isNumber: true,),
-            CustomTextfiled(controller: calculatoController.txtAngka2, label: "input angka 2",
+            CustomTextfiled(controller: calculatorController.txtAngka2, label: "input angka 2",
              labelColor: Colors.green, pass: false, isNumber: true,),
 
             Row(children: [
               CustomButton(myText: "+", myTextColor: Colors.black, onPressed: (){
-                calculatoController.tambah();
+                calculatorController.tambah();
               },),
               CustomButton(myText: "-", myTextColor: Colors.black, onPressed: (){
-                calculatoController.kurang();
+                calculatorController.kurang();
               },)
             ],),
             Row(children: [
               CustomButton(myText: "x", myTextColor: Colors.black, onPressed: (){
-                calculatoController.kali();
+                calculatorController.kali();
               },),
               CustomButton(myText: "/", myTextColor: Colors.black, onPressed: (){
-                calculatoController.bagi();
+                calculatorController.bagi();
               },)
             ],),
             Obx((){
-              return Text ("Hasil "+calculatoController.textHasil.value);
+              return Text ("Hasil "+calculatorController.textHasil.value);
             },),
             CustomButton(
-            myText: "Clear", 
+            myText: "My team", 
             myTextColor: Colors.green, 
             onPressed: (){
-              calculatoController.txtAngka1.clear();
-              calculatoController.txtAngka2.clear();
-              calculatoController.textHasil.value= "";
+              // calculatorController.txtAngka1.clear();
+              // calculatorController.txtAngka2.clear();
+              // calculatorController.textHasil.value= "";
+              Get.toNamed(AppRoutes.footballPage);
             },
            ),
       ],)
