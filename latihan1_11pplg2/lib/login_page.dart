@@ -3,7 +3,7 @@ import 'package:latihan1_11pplg2/register_page.dart';
 import 'package:latihan1_11pplg2/widget/custom_button.dart';
 import 'package:latihan1_11pplg2/widget/custom_textfiled.dart';
 import 'package:latihan1_11pplg2/widget/my_input_field.dart';
-import 'package:latihan1_11pplg2/register_page.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

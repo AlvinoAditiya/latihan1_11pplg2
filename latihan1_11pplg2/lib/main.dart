@@ -19,11 +19,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-       
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      initialRoute: AppRoutes.calculatorPage, // yang mau dijalankan pertama kali
-      getPages: AppPages.pages,
+      initialRoute: AppRoutes.bottomNavPage, // yang mau dijalankan pertama kali
+      getPages: AppRoutes.routes,
+
+
+      
     );
   }
 }

@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:latihan1_11pplg2/controller/football_player_controller.dart';
 
 class EditPlayerPage extends StatelessWidget {
-  final int index;
-  EditPlayerPage({required this.index});
+  
+  EditPlayerPage({super.key});
   
  final footballplayerController = Get.find<FootballplayerController>();
 
@@ -16,10 +16,11 @@ class EditPlayerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+    // Ambil index dari arguments
     final int index = Get.arguments as int;
     final player = footballplayerController.players[index];
-
+    
+    // Isi controller dengan data player
     namaController.text = player.nama;
     posisiController.text = player.posisi;
     nomorController.text = player.nomor;

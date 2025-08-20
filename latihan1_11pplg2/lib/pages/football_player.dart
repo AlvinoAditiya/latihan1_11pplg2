@@ -28,6 +28,7 @@ class Footballplayer extends StatelessWidget {
                 title: Text(player.nama),
                 subtitle: Text("${player.posisi} - No. ${player.nomor}"),
                 onTap: () {
+                  // print ("player clicked" + footballPlayerController.players[index]);
                   Get.toNamed(AppRoutes.editPlayerPage, arguments: index);
                 },
               );

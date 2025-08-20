@@ -12,46 +12,73 @@ class CalculatorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title:  Text("Calculator"),),
-      body: Column(
-        children: [
-            CustomTextfiled(controller: calculatorController.txtAngka1, label: "input angka 1",
-             labelColor: Colors.green, pass: false, isNumber: true,),
-            CustomTextfiled(controller: calculatorController.txtAngka2, label: "input angka 2",
-             labelColor: Colors.green, pass: false, isNumber: true,),
+    return Column(
+       children: [
+        CustomTextfiled(
+          controller: calculatorController.txtAngka1,
+          label: "input angka 1",
+          labelColor: Colors.green,
+          pass: false,
+          isNumber: true,
+        ),
+        CustomTextfiled(
+          controller: calculatorController.txtAngka2,
+          label: "input angka 2",
+          labelColor: Colors.green,
+          pass: false,
+          isNumber: true,
+        ),
 
-            Row(children: [
-              CustomButton(myText: "+", myTextColor: Colors.black, onPressed: (){
-                calculatorController.tambah();
-              },),
-              CustomButton(myText: "-", myTextColor: Colors.black, onPressed: (){
-                calculatorController.kurang();
-              },)
-            ],),
-            Row(children: [
-              CustomButton(myText: "x", myTextColor: Colors.black, onPressed: (){
-                calculatorController.kali();
-              },),
-              CustomButton(myText: "/", myTextColor: Colors.black, onPressed: (){
-                calculatorController.bagi();
-              },)
-            ],),
-            Obx((){
-              return Text ("Hasil "+calculatorController.textHasil.value);
-            },),
+        Row(
+          children: [
             CustomButton(
-            myText: "My team", 
-            myTextColor: Colors.green, 
-            onPressed: (){
-              // calculatorController.txtAngka1.clear();
-              // calculatorController.txtAngka2.clear();
-              // calculatorController.textHasil.value= "";
-              Get.toNamed(AppRoutes.footballPage);
-            },
-           ),
-      ],)
-
+              myText: "+",
+              myTextColor: Colors.black,
+              onPressed: () {
+                calculatorController.tambah();
+              },
+            ),
+            CustomButton(
+              myText: "-",
+              myTextColor: Colors.black,
+              onPressed: () {
+                calculatorController.kurang();
+              },
+            )
+          ],
+        ),
+        Row(
+          children: [
+            CustomButton(
+              myText: "x",
+              myTextColor: Colors.black,
+              onPressed: () {
+                calculatorController.kali();
+              },
+            ),
+            CustomButton(
+              myText: "/",
+              myTextColor: Colors.black,
+              onPressed: () {
+                calculatorController.bagi();
+              },
+            )
+          ],
+        ),
+        Obx(() {
+          return Text("Hasil " + calculatorController.textHasil.value);
+        }),
+        CustomButton(
+          myText: "Clear",
+          myTextColor: Colors.green,
+          onPressed: () {
+            calculatorController.txtAngka1.clear();
+            calculatorController.txtAngka2.clear();
+            calculatorController.textHasil.value= "";
+            // Get.toNamed(AppRoutes.footballPage);
+          },
+        ),
+      ],
       
     );
   }
